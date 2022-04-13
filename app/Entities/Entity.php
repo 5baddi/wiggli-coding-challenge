@@ -11,9 +11,9 @@ namespace BADDIServices\Framework\Entities;
 use BADDIServices\Framework\Interfaces\EntityInterface;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
-use Illuminate\Database\Eloquent\Model as EloquentModel;
+use Jenssegers\Mongodb\Eloquent\Model as MongodbEloquentModel;
 
-class Entity extends EloquentModel implements EntityInterface
+class Entity extends MongodbEloquentModel implements EntityInterface
 {
     use HasTimestamps;
 

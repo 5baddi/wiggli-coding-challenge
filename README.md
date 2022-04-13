@@ -82,3 +82,4 @@ You can use [Laravel Valet](https://laravel.com/docs/9.x/valet) to link the appl
 - [Laravel](https://laravel.com/docs/9.x)
 - [Laravel Sail](https://laravel.com/docs/9.x/sail)
 - [Laravel Valet](https://laravel.com/docs/9.x/valet)
+- [MongoDB and Laravel Integration](https://www.mongodb.com/compatibility/mongodb-laravel-intergration)

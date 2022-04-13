@@ -13,6 +13,9 @@ use BADDIServices\Framework\Repositories\EloquentRepository;
 
 class UserRepository extends EloquentRepository
 {
+    /** @var string */
+    protected $connection = 'mongodb';
+
     /** @var User */
     protected $model = User::class;
 

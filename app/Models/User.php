@@ -23,6 +23,8 @@ class User extends Entity implements AuthenticatableContract, AuthorizableContra
 {
     use Notifiable, Authenticatable, Authorizable, CanResetPassword, MustVerifyEmail, HasApiTokens;
 
+    protected $collection = 'users';
+
     public const FIRST_NAME_COLUMN = 'first_name';
     public const LAST_NAME_COLUMN = 'last_name';
     public const AVATAR_COLUMN = 'avatar';
