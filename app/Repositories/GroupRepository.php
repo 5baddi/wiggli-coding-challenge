@@ -25,7 +25,7 @@ class GroupRepository extends EloquentRepository
     {
         return $this->first([
             [Group::ID_COLUMN, '!=', $id],
-            [Group::NAME_COLUMN => $name]
+            [Group::NAME_COLUMN, '=', $name]
         ]);
     }
 }

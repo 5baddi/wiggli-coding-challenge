@@ -14,6 +14,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Hashing\HashManager;
 use App\Repositories\GroupRepository;
 use Illuminate\Pagination\LengthAwarePaginator;
+use Illuminate\Support\Collection;
 
 class GroupService extends Service
 {
@@ -27,6 +28,11 @@ class GroupService extends Service
         $this->repository = $groupRepository;
     }
 
+    public function all(): Collection
+    {
+        return $this->repository->all();
+    }
+    
     public function paginate(?int $page = null): LengthAwarePaginator
     {
         return $this->repository->paginate($page, ['user']);

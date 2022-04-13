@@ -3,6 +3,7 @@
 use App\Http\Controllers\API\Groups\CreateGroupController;
 use App\Http\Controllers\API\Groups\DeleteGroupController;
 use App\Http\Controllers\API\Groups\ListGroupsController;
+use App\Http\Controllers\API\Groups\ListAllGroupsController;
 use App\Http\Controllers\API\Groups\RetrieveGroupController;
 use App\Http\Controllers\API\Groups\UpdateGroupController;
 use App\Http\Controllers\API\Users\AttachUserToGroupController;
@@ -43,6 +44,7 @@ Route::prefix('v1')
         
         // Public Group Endpoints
         Route::get('/groups', ListGroupsController::class);
+        Route::get('/groups/all', ListAllGroupsController::class);
         Route::get('/groups/{id}', RetrieveGroupController::class);
 
         // Group Endpoints

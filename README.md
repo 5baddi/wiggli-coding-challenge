@@ -63,7 +63,7 @@ docker-compose exec wiggli /bin/bash
 8. Run migration and seed default data
 
 ```bash
-> php artisan migrate && php artisan db:seed
+> php artisan migrate && php artisan db:seed && php artisan passport:install
 ```
 
 9. Build front end

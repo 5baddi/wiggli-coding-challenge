@@ -28,7 +28,7 @@ class UpdateUserController extends APIController
                 User::FIRST_NAME_COLUMN => ['nullable', 'string', 'min:1'],
                 User::LAST_NAME_COLUMN  => ['nullable', 'string', 'min:1'],
                 User::EMAIL_COLUMN      => ['nullable', 'email'],
-                User::PHONE_COLUMN      => ['nullable', 'email'],
+                User::PHONE_COLUMN      => ['nullable', 'string'],
                 User::AGE_COLUMN        => ['nullable', 'integer'],
                 User::TYPE_COLUMN       => ['nullable', 'string'],
             ]

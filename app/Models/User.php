@@ -18,7 +18,7 @@ use Illuminate\Foundation\Auth\Access\Authorizable;
 use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
 use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
-use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Entity implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
@@ -78,8 +78,8 @@ class User extends Entity implements AuthenticatableContract, AuthorizableContra
         return sprintf('%s %s', $this->getFirstName(), $this->getLastName());
     }
 
-    public function groups(): HasMany
+    public function groups(): BelongsToMany
     {
-        return $this->hasMany(UserGroup::class);
+        return $this->belongsToMany(Group::class, 'user_groups');
     }
 }

@@ -23,7 +23,7 @@ class CreateUserController extends APIController
                 User::FIRST_NAME_COLUMN => ['required', 'string', 'min:1'],
                 User::LAST_NAME_COLUMN  => ['required', 'string', 'min:1'],
                 User::EMAIL_COLUMN      => ['required', 'email'],
-                User::PHONE_COLUMN      => ['nullable', 'email'],
+                User::PHONE_COLUMN      => ['nullable', 'string'],
                 User::AGE_COLUMN        => ['nullable', 'integer'],
                 User::TYPE_COLUMN       => ['nullable', 'string'],
             ]

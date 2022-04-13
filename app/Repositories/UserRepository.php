@@ -26,7 +26,7 @@ class UserRepository extends EloquentRepository
     {
         return $this->first([
             [User::ID_COLUMN, '!=', $id],
-            [User::EMAIL_COLUMN => $email]
+            [User::EMAIL_COLUMN, '=', $email]
         ]);
     }
     
