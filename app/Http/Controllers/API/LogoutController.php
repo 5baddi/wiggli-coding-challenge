@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Controllers\API\Users;
+namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\APIController;
 use Illuminate\Auth\AuthManager;
