@@ -26,12 +26,12 @@ class UserService extends Service
 
     public function paginate(?int $page = null): LengthAwarePaginator
     {
-        return $this->repository->paginate($page);
+        return $this->repository->paginate($page, ['groups']);
     }
     
     public function findById(string $id): ?User
     {
-        return $this->repository->findById($id);
+        return $this->repository->findById($id, ['groups']);
     }
     
     public function findByEmail(string $email): ?User
@@ -77,20 +77,12 @@ class UserService extends Service
                 User::PASSWORD_COLUMN,
                 User::PHONE_COLUMN,
                 User::AGE_COLUMN,
-                User::TYPE_COLUMN,
-                'group_id'
+                User::TYPE_COLUMN
             ]
         );
         
         if (Arr::has($attributes, User::PASSWORD_COLUMN)) {
             $attributes[User::PASSWORD_COLUMN] = $this->hashManager->make($attributes[User::PASSWORD_COLUMN]);
-        }
-        
-        if (Arr::has($attributes, 'group_id')) {
-            $groups = $user->getGroups();
-            array_push($groups, $attributes['group_id']);
-
-            $attributes[User::GROUPS_COLUMN] = json_encode($groups);
         }
 
         return $this->repository->update([User::ID_COLUMN => $user->getId()], $attributes);

@@ -26,12 +26,12 @@ class GroupService extends Service
 
     public function paginate(?int $page = null): LengthAwarePaginator
     {
-        return $this->repository->paginate($page);
+        return $this->repository->paginate($page, ['user']);
     }
 
     public function findById(string $id): ?Group
     {
-        return $this->repository->findById($id);
+        return $this->repository->findById($id, ['user']);
     }
     
     public function findByName(string $name): ?Group

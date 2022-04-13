@@ -28,7 +28,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::post('/sign-in', AuthenticationController::class);
 Route::post('/sign-out', LogoutController::class);
-
+        
 Route::prefix('v1')
     ->group(function () {
         // Public User Endpoints
@@ -36,17 +36,17 @@ Route::prefix('v1')
         Route::get('/users/{id}', RetrieveUserController::class);
 
         // User Endpoints
-        Route::post('/users', CreateUserController::class)->middleware('auth:sanctum');
-        Route::post('/users/{id}/group', AttachUserToGroupController::class)->middleware('auth:sanctum');
-        Route::put('/users/{id}', UpdateUserController::class)->middleware('auth:sanctum');
-        Route::delete('/users/{id}', DeleteUserController::class)->middleware('auth:sanctum');
+        Route::post('/users', CreateUserController::class)->middleware('auth:api');
+        Route::post('/users/{id}/group', AttachUserToGroupController::class)->middleware('auth:api');
+        Route::put('/users/{id}', UpdateUserController::class)->middleware('auth:api');
+        Route::delete('/users/{id}', DeleteUserController::class)->middleware('auth:api');
         
         // Public Group Endpoints
         Route::get('/groups', ListGroupsController::class);
         Route::get('/groups/{id}', RetrieveGroupController::class);
 
         // Group Endpoints
-        Route::post('/groups', CreateGroupController::class)->middleware('auth:sanctum');
-        Route::put('/groups/{id}', UpdateGroupController::class)->middleware('auth:sanctum');
-        Route::delete('/groups/{id}', DeleteGroupController::class)->middleware('auth:sanctum');
+        Route::post('/groups', CreateGroupController::class)->middleware('auth:api');
+        Route::put('/groups/{id}', UpdateGroupController::class)->middleware('auth:api');
+        Route::delete('/groups/{id}', DeleteGroupController::class)->middleware('auth:api');
     });

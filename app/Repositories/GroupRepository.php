@@ -13,9 +13,6 @@ use BADDIServices\Framework\Repositories\EloquentRepository;
 
 class GroupRepository extends EloquentRepository
 {
-    /** @var string */
-    protected $connection = 'mongodb';
-
     /** @var Group */
     protected $model = Group::class;
     

@@ -24,7 +24,7 @@ abstract class EloquentRepository
             ->get();
     }
 
-    public function paginate(?int $page = null, ?int $limit = null): LengthAwarePaginator
+    public function paginate(?int $page = null, array $relations = [], ?int $limit = null): LengthAwarePaginator
     {
         if (is_null($page)) {
             $page = 1;
@@ -35,18 +35,21 @@ abstract class EloquentRepository
         }
 
         return $this->newQuery()
+            ->with($relations)
             ->paginate($limit, ['*'], 'page', $page);
     }
 
-    public function findById(string $id): ?Entity
+    public function findById(string $id, array $relations = []): ?Entity
     {
         return $this->newQuery()
+            ->with($relations)
             ->find($id);
     }
 
-    public function first(array $conditions, array $columns = ['*']): ?Entity
+    public function first(array $conditions, array $relations = [], array $columns = ['*']): ?Entity
     {
         return $this->newQuery()
+            ->with($relations)
             ->select($columns)
             ->where($conditions)
             ->first();

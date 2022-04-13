@@ -38,7 +38,7 @@ class AuthenticationController extends APIController
         $user = $this->authManager->user();
 
         return $this->success([
-            'token' => $user->createToken('api-auth-token')->plainTextToken
+            'token' => $user->createToken('api-auth-token')->accessToken
         ]);
     }
 }

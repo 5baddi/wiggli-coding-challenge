@@ -8,23 +8,21 @@
 
 namespace App\Models;
 
-use BADDIServices\Framework\Entities\Entity;
-use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 use Illuminate\Auth\Authenticatable;
 use Illuminate\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Auth\Passwords\CanResetPassword;
-use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
-use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
-use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use BADDIServices\Framework\Entities\Entity;
 use Illuminate\Foundation\Auth\Access\Authorizable;
-use Laravel\Sanctum\HasApiTokens;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Contracts\Auth\Access\Authorizable as AuthorizableContract;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class User extends Entity implements AuthenticatableContract, AuthorizableContract, CanResetPasswordContract
 {
     use Notifiable, Authenticatable, Authorizable, CanResetPassword, MustVerifyEmail, HasApiTokens;
-
-    /** @var string */
-    protected $collection = 'users';
 
     public const FIRST_NAME_COLUMN = 'first_name';
     public const LAST_NAME_COLUMN = 'last_name';
@@ -32,10 +30,8 @@ class User extends Entity implements AuthenticatableContract, AuthorizableContra
     public const PASSWORD_COLUMN = 'password';
     public const PHONE_COLUMN = 'phone';
     public const VERIFIED_AT_COLUMN = 'verified_at';
-    public const IS_SUPER_ADMIN_COLUMN = 'is_super_admin';
     public const AGE_COLUMN = 'age';
     public const TYPE_COLUMN = 'type';
-    public const GROUPS_COLUMN = 'groups';
 
     /** @var array */
     protected $hidden = [
@@ -76,18 +72,14 @@ class User extends Entity implements AuthenticatableContract, AuthorizableContra
     {
         return $this->getAttribute(self::AGE_COLUMN);
     }
-    
-    public function getGroups(): ?array
-    {
-        if (! is_null($this->getAttribute(self::GROUPS_COLUMN))) {
-            return json_decode($this->getAttribute(self::GROUPS_COLUMN));
-        }
-
-        return [];
-    }
 
     public function getFullName(): string
     {
         return sprintf('%s %s', $this->getFirstName(), $this->getLastName());
+    }
+
+    public function groups(): HasMany
+    {
+        return $this->hasMany(UserGroup::class);
     }
 }

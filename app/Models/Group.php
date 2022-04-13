@@ -9,12 +9,10 @@
 namespace App\Models;
 
 use BADDIServices\Framework\Entities\Entity;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 class Group extends Entity
 {
-    /** @var string */
-    protected $collection = 'groups';
-
     public const NAME_COLUMN = 'name';
     public const DESCRIPTION_COLUMN = 'description';
 
@@ -26,5 +24,10 @@ class Group extends Entity
     public function getDescription(): string
     {
         return $this->getAttribute(self::DESCRIPTION_COLUMN);
+    }
+
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class);
     }
 }

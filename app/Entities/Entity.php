@@ -11,9 +11,9 @@ namespace BADDIServices\Framework\Entities;
 use BADDIServices\Framework\Interfaces\EntityInterface;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Concerns\HasTimestamps;
-use Jenssegers\Mongodb\Eloquent\Model as MongodbEloquentModel;
+use Illuminate\Database\Eloquent\Model;
 
-class Entity extends MongodbEloquentModel implements EntityInterface
+class Entity extends Model implements EntityInterface
 {
     use HasTimestamps;
 
@@ -21,7 +21,7 @@ class Entity extends MongodbEloquentModel implements EntityInterface
     public $incrementing = false;
 
     /** @var string */
-    protected $primaryKey = '_id';
+    protected $primaryKey = 'id';
     protected $keyType = 'string';
 
     /** @var array */
