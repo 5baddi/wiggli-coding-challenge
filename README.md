@@ -46,12 +46,12 @@ docker-compose ps
 |---------------|:----------------------:|--------------:|------------------:|-----------------------------------------------:|
 | mongo-express | "tini -- /docker-ent…" | mongo-express | running (healthy) |                         0.0.0.0:8081->8081/tcp |
 | mongodb       | "docker-entrypoint.s…" |       mongodb | running (healthy) |                       0.0.0.0:27017->27017/tcp |
-| web-server    |   "start-container"    |         php80 |           running |                             0.0.0.0:80->80/tcp |
+| wiggli   |   "start-container"    |         php81 |           running |                             0.0.0.0:80->80/tcp |
 
 6. Connect to app container via SSH
 
 ```bash
-docker-compose exec php81 /bin/bash
+docker-compose exec wiggli /bin/bash
 ```
 
 7. Install project dependencies
