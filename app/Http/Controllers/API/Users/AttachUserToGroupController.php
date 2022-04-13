@@ -11,7 +11,7 @@ use App\Models\Group;
 use App\Services\GroupService;
 use Illuminate\Support\Facades\Validator;
 
-class AttachGroupController extends APIController
+class AttachUserToGroupController extends APIController
 {
     public function __construct(
         private UserService $userService,
