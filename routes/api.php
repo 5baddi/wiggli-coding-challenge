@@ -36,17 +36,17 @@ Route::prefix('v1')
         Route::get('/users/{id}', RetrieveUserController::class);
 
         // User Endpoints
-        Route::post('/users', CreateUserController::class);
-        Route::post('/users/{id}/group', AttachUserToGroupController::class);
-        Route::put('/users/{id}', UpdateUserController::class);
-        Route::delete('/users/{id}', DeleteUserController::class);
+        Route::post('/users', CreateUserController::class)->middleware('auth:sanctum');
+        Route::post('/users/{id}/group', AttachUserToGroupController::class)->middleware('auth:sanctum');
+        Route::put('/users/{id}', UpdateUserController::class)->middleware('auth:sanctum');
+        Route::delete('/users/{id}', DeleteUserController::class)->middleware('auth:sanctum');
         
         // Public Group Endpoints
         Route::get('/groups', ListGroupsController::class);
         Route::get('/groups/{id}', RetrieveGroupController::class);
 
         // Group Endpoints
-        Route::post('/groups', CreateGroupController::class);
-        Route::put('/groups/{id}', UpdateGroupController::class);
-        Route::delete('/groups/{id}', DeleteGroupController::class);
+        Route::post('/groups', CreateGroupController::class)->middleware('auth:sanctum');
+        Route::put('/groups/{id}', UpdateGroupController::class)->middleware('auth:sanctum');
+        Route::delete('/groups/{id}', DeleteGroupController::class)->middleware('auth:sanctum');
     });
