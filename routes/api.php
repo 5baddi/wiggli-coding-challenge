@@ -27,24 +27,26 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::post('/sign-in', AuthenticationController::class);
+Route::post('/sign-out', LogoutController::class);
 
 Route::prefix('v1')
-    ->middleware('auth:sanctum')
     ->group(function () {
-        // User Endpoints
+        // Public User Endpoints
         Route::get('/users', ListUsersController::class);
         Route::get('/users/{id}', RetrieveUserController::class);
+
+        // User Endpoints
         Route::post('/users', CreateUserController::class);
-        Route::post('/users/group', AttachUserToGroupController::class);
+        Route::post('/users/{id}/group', AttachUserToGroupController::class);
         Route::put('/users/{id}', UpdateUserController::class);
         Route::delete('/users/{id}', DeleteUserController::class);
         
-        // Group Endpoints
+        // Public Group Endpoints
         Route::get('/groups', ListGroupsController::class);
         Route::get('/groups/{id}', RetrieveGroupController::class);
+
+        // Group Endpoints
         Route::post('/groups', CreateGroupController::class);
         Route::put('/groups/{id}', UpdateGroupController::class);
         Route::delete('/groups/{id}', DeleteGroupController::class);
-
-        Route::post('/sign-out', LogoutController::class);
     });

@@ -13,7 +13,7 @@ class DeleteUserController extends APIController
         private UserService $userService
     ) {}
 
-    public function __invoke(int $id)
+    public function __invoke(string $id)
     {
         $user = $this->userService->findById($id);
         if (! $user instanceof User) {

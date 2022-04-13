@@ -32,7 +32,7 @@ class AuthenticationController extends APIController
         }
 
         if (! $this->authManager->attempt($validator->validated())) {
-            return $this->error(Response::HTTP_UNAUTHORIZED, 'Invalid user credentials!');
+            return $this->error(Response::HTTP_BAD_REQUEST, 'Invalid user credentials!');
         }
 
         $user = $this->authManager->user();

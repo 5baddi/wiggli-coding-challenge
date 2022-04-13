@@ -18,7 +18,7 @@ class UserRepository extends EloquentRepository
 
     /** @var User */
     protected $model = User::class;
-
+    
     public function findByEmail(string $email): ?User
     {
         return $this->first([User::EMAIL_COLUMN => $email]);

@@ -1,0 +1,1455 @@
+{
+	"info": {
+		"_postman_id": "35a691b2-71eb-4282-855f-15b20fd014a6",
+		"name": "Wiggli",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Users",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/v1/users",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/v1/users",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8088"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:36:19 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:36:19 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"result\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"_id\": \"6256d5d934f181962b0fa162\",\n                \"first_name\": \"Mohamed\",\n                \"last_name\": \"Baddi\",\n                \"email\": \"project@baddi.info\",\n                \"updated_at\": \"2022-04-13T13:53:29.584000Z\",\n                \"created_at\": \"2022-04-13T13:53:29.584000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://localhost:8088/api/v1/users?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://localhost:8088/api/v1/users?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8088/api/v1/users?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://localhost:8088/api/v1/users\",\n        \"per_page\": 20,\n        \"prev_page_url\": null,\n        \"to\": 1,\n        \"total\": 1\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Retrieve ",
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/v1/users/6256d5d934f181962b0fa162",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								"6256d5d934f181962b0fa162"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/v1/users/6256d5d934f181962b0fa162",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										"6256d5d934f181962b0fa162"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8088"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:44:56 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:44:56 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"User not found!\",\n    \"errors\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "test",
+									"type": "default"
+								},
+								{
+									"key": "last_name",
+									"value": "blabla",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "test@test.com",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/v1/users",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"v1",
+								"users"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "test",
+											"type": "default"
+										},
+										{
+											"key": "last_name",
+											"value": "blabla",
+											"type": "default"
+										},
+										{
+											"key": "email",
+											"value": "test@test.com",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API}}/v1/users",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"v1",
+										"users"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8088"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:44:29 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:44:29 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"result\": {\n        \"first_name\": \"test\",\n        \"last_name\": \"blabla\",\n        \"email\": \"test@test.com\",\n        \"updated_at\": \"2022-04-13T14:44:29.463000Z\",\n        \"created_at\": \"2022-04-13T14:44:29.463000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "first_name",
+									"value": "test",
+									"type": "default",
+									"disabled": true
+								},
+								{
+									"key": "last_name",
+									"value": "blabla2",
+									"type": "default"
+								},
+								{
+									"key": "email",
+									"value": "test@test.com",
+									"type": "default",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/v1/users/6256e1cdc49861906203f06a",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								"6256e1cdc49861906203f06a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "first_name",
+											"value": "test",
+											"type": "default",
+											"disabled": true
+										},
+										{
+											"key": "last_name",
+											"value": "blabla2",
+											"type": "default"
+										},
+										{
+											"key": "email",
+											"value": "test@test.com",
+											"type": "default",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API}}/v1/users/6256e1cdc49861906203f06a",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										"6256e1cdc49861906203f06a"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8088"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:46:02 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:46:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"User not found!\",\n    \"errors\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/v1/users/6256e1cdc49861906203f06a",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								"6256e1cdc49861906203f06a"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/v1/users/6256e1cdc49861906203f06a",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										"6256e1cdc49861906203f06a"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8088"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:46:36 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:46:36 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"User not found!\",\n    \"errors\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Attach group",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "group_id",
+									"value": "6256d5d934f181962b0fa163",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/v1/users/6256e1cdc49861906203f06a/group/",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"v1",
+								"users",
+								"6256e1cdc49861906203f06a",
+								"group",
+								""
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "group_id",
+											"value": "6256d5d934f181962b0fa163",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API}}/v1/users/6256e1cdc49861906203f06a/group/",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"v1",
+										"users",
+										"6256e1cdc49861906203f06a",
+										"group",
+										""
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8088"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:50:13 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:50:13 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"User not found!\",\n    \"errors\": []\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Groups",
+			"item": [
+				{
+					"name": "List",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/v1/groups",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"v1",
+								"groups"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/v1/groups",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"v1",
+										"groups"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8088"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:47:25 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:47:25 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"result\": {\n        \"current_page\": 1,\n        \"data\": [\n            {\n                \"_id\": \"6256d5d934f181962b0fa163\",\n                \"name\": \"Wiggli\",\n                \"updated_at\": \"2022-04-13T13:53:29.614000Z\",\n                \"created_at\": \"2022-04-13T13:53:29.614000Z\"\n            },\n            {\n                \"_id\": \"6256e270c49861906203f06b\",\n                \"name\": \"test\",\n                \"updated_at\": \"2022-04-13T14:47:12.647000Z\",\n                \"created_at\": \"2022-04-13T14:47:12.647000Z\"\n            }\n        ],\n        \"first_page_url\": \"http://localhost:8088/api/v1/groups?page=1\",\n        \"from\": 1,\n        \"last_page\": 1,\n        \"last_page_url\": \"http://localhost:8088/api/v1/groups?page=1\",\n        \"links\": [\n            {\n                \"url\": null,\n                \"label\": \"&laquo; Previous\",\n                \"active\": false\n            },\n            {\n                \"url\": \"http://localhost:8088/api/v1/groups?page=1\",\n                \"label\": \"1\",\n                \"active\": true\n            },\n            {\n                \"url\": null,\n                \"label\": \"Next &raquo;\",\n                \"active\": false\n            }\n        ],\n        \"next_page_url\": null,\n        \"path\": \"http://localhost:8088/api/v1/groups\",\n        \"per_page\": 20,\n        \"prev_page_url\": null,\n        \"to\": 2,\n        \"total\": 2\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Retrieve",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/v1/groups/6256d5d934f181962b0fa163",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"v1",
+								"groups",
+								"6256d5d934f181962b0fa163"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/v1/groups/6256d5d934f181962b0fa163",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"v1",
+										"groups",
+										"6256d5d934f181962b0fa163"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8088"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:47:20 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:47:20 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Group not found!\",\n    \"errors\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Create",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/v1/groups",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"v1",
+								"groups"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Success",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "test",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API}}/v1/groups",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"v1",
+										"groups"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8088"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:47:12 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:47:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"result\": {\n        \"name\": \"test\",\n        \"updated_at\": \"2022-04-13T14:47:12.647000Z\",\n        \"created_at\": \"2022-04-13T14:47:12.647000Z\"\n    }\n}"
+						}
+					]
+				},
+				{
+					"name": "Update",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "test2",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/v1/groups/6256d5d934f181962b0fa163",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"v1",
+								"groups",
+								"6256d5d934f181962b0fa163"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "name",
+											"value": "test2",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "{{API}}/v1/groups/6256d5d934f181962b0fa163",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"v1",
+										"groups",
+										"6256d5d934f181962b0fa163"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8088"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:48:03 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:48:03 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "56"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Group not found!\",\n    \"errors\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/v1/groups/6256d5d934f181962b0fa163",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"v1",
+								"groups",
+								"6256d5d934f181962b0fa163"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Not found",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{API}}/v1/groups/6256d5d934f181962b0fa163",
+									"host": [
+										"{{API}}"
+									],
+									"path": [
+										"v1",
+										"groups",
+										"6256d5d934f181962b0fa163"
+									]
+								}
+							},
+							"status": "Not Found",
+							"code": 404,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8088"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:48:37 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:48:37 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Group not found!\",\n    \"errors\": []\n}"
+						}
+					]
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Sign in",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "project@baddi.info",
+									"type": "default"
+								},
+								{
+									"key": "password",
+									"value": "password",
+									"type": "default"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{API}}/sign-in",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"sign-in"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sign in",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "project@baddi.info",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "password",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8088/api/sign-in",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"api",
+										"sign-in"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8088"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:05:46 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:05:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "59"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"result\": {\n        \"token\": \"6256d8bac49861906203f063|AKODMVxXui54ck7bpGvBQXw7ocbiVWjmnzyaXkW0\"\n    }\n}"
+						},
+						{
+							"name": "Sign in",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "formdata",
+									"formdata": [
+										{
+											"key": "email",
+											"value": "project@baddi.info",
+											"type": "default"
+										},
+										{
+											"key": "password",
+											"value": "passw",
+											"type": "default"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8088/api/sign-in",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"api",
+										"sign-in"
+									]
+								}
+							},
+							"status": "Bad Request",
+							"code": 400,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8088"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:07:54 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:07:54 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "58"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": false,\n    \"message\": \"Invalid user credentials!\",\n    \"errors\": []\n}"
+						}
+					]
+				},
+				{
+					"name": "Sign out",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{token}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{API}}/sign-out",
+							"host": [
+								"{{API}}"
+							],
+							"path": [
+								"sign-out"
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "Sign out",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8088/api/sign-out",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8088",
+									"path": [
+										"api",
+										"sign-out"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Host",
+									"value": "localhost:8088"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:15:52 GMT"
+								},
+								{
+									"key": "Date",
+									"value": "Wed, 13 Apr 2022 14:15:52 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "close"
+								},
+								{
+									"key": "X-Powered-By",
+									"value": "PHP/8.1.4"
+								},
+								{
+									"key": "Cache-Control",
+									"value": "no-cache, private"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								},
+								{
+									"key": "X-RateLimit-Limit",
+									"value": "60"
+								},
+								{
+									"key": "X-RateLimit-Remaining",
+									"value": "57"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"success\": true,\n    \"result\": null\n}"
+						}
+					]
+				}
+			]
+		}
+	]
+}

@@ -18,7 +18,7 @@ class AttachUserToGroupController extends APIController
         private GroupService $groupService,
     ) {}
 
-    public function __invoke(int $id, Request $request)
+    public function __invoke(string $id, Request $request)
     {
         $user = $this->userService->findById($id);
         if (! $user instanceof User) {

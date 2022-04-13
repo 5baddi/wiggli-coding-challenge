@@ -15,7 +15,7 @@ class UpdateGroupController extends APIController
         private GroupService $groupService
     ) {}
 
-    public function __invoke(int $id, Request $request)
+    public function __invoke(string $id, Request $request)
     {
         $group = $this->groupService->findById($id);
         if (! $group instanceof Group) {
@@ -25,7 +25,7 @@ class UpdateGroupController extends APIController
         $validator = Validator::make(
             $request->all(),
             [
-                Group::NAME_COLUMN          => ['required', 'string', 'min:1'],
+                Group::NAME_COLUMN          => ['nullable', 'string', 'min:1'],
                 Group::DESCRIPTION_COLUMN   => ['nullable', 'string']
             ]
         );

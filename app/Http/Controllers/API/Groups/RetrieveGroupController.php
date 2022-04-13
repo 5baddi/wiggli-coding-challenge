@@ -13,7 +13,7 @@ class RetrieveGroupController extends APIController
         private GroupService $groupService
     ) {}
 
-    public function __invoke(int $id)
+    public function __invoke(string $id)
     {
         $group = $this->groupService->findById($id);
         if (! $group instanceof Group) {

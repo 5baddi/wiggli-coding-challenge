@@ -15,7 +15,7 @@ class UpdateUserController extends APIController
         private UserService $userService
     ) {}
 
-    public function __invoke(int $id, Request $request)
+    public function __invoke(string $id, Request $request)
     {
         $user = $this->userService->findById($id);
         if (! $user instanceof User) {
@@ -25,9 +25,9 @@ class UpdateUserController extends APIController
         $validator = Validator::make(
             $request->all(),
             [
-                User::FIRST_NAME_COLUMN => ['required', 'string', 'min:1'],
-                User::LAST_NAME_COLUMN  => ['required', 'string', 'min:1'],
-                User::EMAIL_COLUMN      => ['required', 'email'],
+                User::FIRST_NAME_COLUMN => ['nullable', 'string', 'min:1'],
+                User::LAST_NAME_COLUMN  => ['nullable', 'string', 'min:1'],
+                User::EMAIL_COLUMN      => ['nullable', 'email'],
                 User::PHONE_COLUMN      => ['nullable', 'email'],
                 User::AGE_COLUMN        => ['nullable', 'integer'],
                 User::TYPE_COLUMN       => ['nullable', 'string'],

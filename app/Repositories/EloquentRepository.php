@@ -21,7 +21,6 @@ abstract class EloquentRepository
     public function all(): Collection
     {
         return $this->newQuery()
-            ->select(Entity::ID_COLUMN)
             ->get();
     }
 
@@ -36,7 +35,7 @@ abstract class EloquentRepository
         }
 
         return $this->newQuery()
-            ->paginate($limit, [Entity::ID_COLUMN], 'page', $page);
+            ->paginate($limit, ['*'], 'page', $page);
     }
 
     public function findById(string $id): ?Entity

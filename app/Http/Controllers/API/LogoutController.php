@@ -13,7 +13,9 @@ class LogoutController extends APIController
 
     public function __invoke()
     {
-        $this->authManager->user()->tokens()->delete();
+        if ($this->authManager->check()) {
+            $this->authManager->user()->tokens()->delete();
+        }
 
         return $this->success();
     }
