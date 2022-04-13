@@ -79,7 +79,7 @@ abstract class EloquentRepository
             ->updateOrCreate($conditions, $attributes);
     }
     
-    public function delete(int $id): bool
+    public function delete(string $id): bool
     {
         return $this->newQuery()
             ->where(Entity::ID_COLUMN, $id)

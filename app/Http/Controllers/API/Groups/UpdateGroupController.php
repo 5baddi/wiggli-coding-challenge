@@ -34,9 +34,11 @@ class UpdateGroupController extends APIController
             return $this->error(Response::HTTP_BAD_REQUEST, 'Invalid group information!', $validator->errors()->toArray());
         }
 
-        $existGroup = $this->groupService->existsByName($group, $request->input(Group::NAME_COLUMN));
-        if ($existGroup instanceof Group) {
-            return $this->error(Response::HTTP_CONFLICT, 'Group name already exists!');
+        if ($request->has(Group::NAME_COLUMN)) {
+            $existGroup = $this->groupService->existsByName($group, $request->input(Group::NAME_COLUMN));
+            if ($existGroup instanceof Group) {
+                return $this->error(Response::HTTP_CONFLICT, 'Group name already exists!');
+            }
         }
 
         if (! $this->groupService->update($group, $validator->validated())) {

@@ -28,7 +28,7 @@ class AttachUserToGroupController extends APIController
         $validator = Validator::make(
             $request->all(),
             [
-                'group_id' => ['required', 'integer'],
+                'group_id' => ['required', 'string'],
             ]
         );
 

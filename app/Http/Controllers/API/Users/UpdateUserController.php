@@ -38,9 +38,11 @@ class UpdateUserController extends APIController
             return $this->error(Response::HTTP_BAD_REQUEST, 'Invalid user information!', $validator->errors()->toArray());
         }
 
-        $existUser = $this->userService->existsByEmail($user, $request->input(User::EMAIL_COLUMN));
-        if ($existUser instanceof User) {
-            return $this->error(Response::HTTP_CONFLICT, 'User email already exists!');
+        if ($request->has(User::EMAIL_COLUMN)) {
+            $existUser = $this->userService->existsByEmail($user, $request->input(User::EMAIL_COLUMN));
+            if ($existUser instanceof User) {
+                return $this->error(Response::HTTP_CONFLICT, 'User email already exists!');
+            }
         }
 
         if (! $this->userService->update($user, $validator->validated())) {

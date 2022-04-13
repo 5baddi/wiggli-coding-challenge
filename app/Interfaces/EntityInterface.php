@@ -13,7 +13,7 @@ use Carbon\Carbon;
 interface EntityInterface
 {
     /** @var string */
-    public const ID_COLUMN = 'id';
+    public const ID_COLUMN = '_id';
     public const DELETED_AT_COLUMN = 'deleted_at';
 
     public function getId(): string;

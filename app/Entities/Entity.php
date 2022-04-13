@@ -21,7 +21,7 @@ class Entity extends MongodbEloquentModel implements EntityInterface
     public $incrementing = false;
 
     /** @var string */
-    protected $primaryKey = 'id';
+    protected $primaryKey = '_id';
     protected $keyType = 'string';
 
     /** @var array */
