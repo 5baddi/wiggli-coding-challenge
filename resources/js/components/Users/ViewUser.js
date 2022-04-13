@@ -126,13 +126,16 @@ function ViewUser() {
             {
                 typeof user.groups !== "undefined" && user.groups.length > 0
                 ? (
-                    <ul className="mb-3">
-                        {
-                            (user.groups ?? []).map((group, index) => {
-                                return (<li key={index}>{group.name}</li>)
-                            })
-                        }
-                    </ul>
+                    <div className="mb-3">
+                        <label className="form-label">User groups</label>
+                        <ul className="mb-3">
+                            {
+                                (user.groups ?? []).map((group, index) => {
+                                    return (<li key={index}>{group.name}</li>)
+                                })
+                            }
+                        </ul>
+                    </div>
                 )
                 : undefined
             }

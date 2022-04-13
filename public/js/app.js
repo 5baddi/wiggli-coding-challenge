@@ -4010,13 +4010,19 @@ function ViewUser() {
           children: "Attach"
         })
       })]
-    }) : undefined, typeof user.groups !== "undefined" && user.groups.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
+    }) : undefined, typeof user.groups !== "undefined" && user.groups.length > 0 ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
       className: "mb-3",
-      children: ((_user$groups = user.groups) !== null && _user$groups !== void 0 ? _user$groups : []).map(function (group, index) {
-        return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
-          children: group.name
-        }, index);
-      })
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("label", {
+        className: "form-label",
+        children: "User groups"
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("ul", {
+        className: "mb-3",
+        children: ((_user$groups = user.groups) !== null && _user$groups !== void 0 ? _user$groups : []).map(function (group, index) {
+          return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("li", {
+            children: group.name
+          }, index);
+        })
+      })]
     }) : undefined]
   }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {});
 }
