@@ -17,6 +17,9 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class GroupService extends Service
 {
+    /** @var GroupRepository */
+    protected $repository;
+
     public function __construct(
         private HashManager $hashManager,
         GroupRepository $groupRepository,

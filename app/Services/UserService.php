@@ -8,6 +8,7 @@
 
 namespace App\Services;
 
+use App\Models\Group;
 use App\Models\User;
 use App\Services\Service;
 use BADDIServices\Framework\Repositories\UserRepository;
@@ -91,5 +92,10 @@ class UserService extends Service
     public function delete(User $user): bool
     {
         return $this->repository->delete($user->getId());
+    }
+    
+    public function attachGroup(User $user, Group $group): bool
+    {
+        return $this->repository->attachGroup($user->getId(), $group->getId());
     }
 }

@@ -41,7 +41,7 @@ class AttachUserToGroupController extends APIController
             return $this->error(Response::HTTP_NOT_FOUND, 'Group not found!');
         }
 
-        if (! $this->userService->update($user, $validator->validated())) {
+        if (! $this->userService->attachGroup($user, $group)) {
             return $this->error(Response::HTTP_CONFLICT, 'Impossible to update user!');
         }
 
