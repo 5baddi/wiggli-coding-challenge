@@ -6,9 +6,11 @@ use App\Http\Controllers\API\Groups\ListGroupsController;
 use App\Http\Controllers\API\Groups\RetrieveGroupController;
 use App\Http\Controllers\API\Groups\UpdateGroupController;
 use App\Http\Controllers\API\Users\AttachUserToGroupController;
+use App\Http\Controllers\API\Users\AuthenticationController;
 use App\Http\Controllers\API\Users\CreateUserController;
 use App\Http\Controllers\API\Users\DeleteUserController;
 use App\Http\Controllers\API\Users\ListUsersController;
+use App\Http\Controllers\API\Users\LogoutController;
 use App\Http\Controllers\API\Users\RetrieveUserController;
 use App\Http\Controllers\API\Users\UpdateUserController;
 use Illuminate\Support\Facades\Route;
@@ -23,6 +25,8 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
+
+Route::post('/sign-in', AuthenticationController::class);
 
 Route::prefix('v1')
     ->middleware('auth:sanctum')
@@ -41,4 +45,6 @@ Route::prefix('v1')
         Route::post('/groups', CreateGroupController::class);
         Route::put('/groups/{id}', UpdateGroupController::class);
         Route::delete('/groups/{id}', DeleteGroupController::class);
+
+        Route::post('/sign-out', LogoutController::class);
     });
