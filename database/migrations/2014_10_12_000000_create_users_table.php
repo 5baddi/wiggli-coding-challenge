@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->smallInteger('age')->nullable();
             $table->string('type')->nullable();
+            $table->json('groups')->nullable();
             $table->tinyInteger('is_super_admin')->default(0);
             $table->timestamp('verified_at')->nullable();
             $table->rememberToken();

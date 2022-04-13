@@ -78,11 +78,19 @@ class UserService extends Service
                 User::PHONE_COLUMN,
                 User::AGE_COLUMN,
                 User::TYPE_COLUMN,
+                'group_id'
             ]
         );
         
         if (Arr::has($attributes, User::PASSWORD_COLUMN)) {
             $attributes[User::PASSWORD_COLUMN] = $this->hashManager->make($attributes[User::PASSWORD_COLUMN]);
+        }
+        
+        if (Arr::has($attributes, 'group_id')) {
+            $groups = $user->getGroups();
+            array_push($groups, $attributes['group_id']);
+
+            $attributes[User::GROUPS_COLUMN] = json_encode($groups);
         }
 
         return $this->repository->update([User::ID_COLUMN => $user->getId()], $attributes);

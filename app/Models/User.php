@@ -35,6 +35,7 @@ class User extends Entity implements AuthenticatableContract, AuthorizableContra
     public const IS_SUPER_ADMIN_COLUMN = 'is_super_admin';
     public const AGE_COLUMN = 'age';
     public const TYPE_COLUMN = 'type';
+    public const GROUPS_COLUMN = 'groups';
 
     /** @var array */
     protected $hidden = [
@@ -74,6 +75,15 @@ class User extends Entity implements AuthenticatableContract, AuthorizableContra
     public function getAge(): ?int
     {
         return $this->getAttribute(self::AGE_COLUMN);
+    }
+    
+    public function getGroups(): ?array
+    {
+        if (! is_null($this->getAttribute(self::GROUPS_COLUMN))) {
+            return json_decode($this->getAttribute(self::GROUPS_COLUMN));
+        }
+
+        return [];
     }
 
     public function getFullName(): string
