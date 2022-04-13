@@ -3880,23 +3880,24 @@ function ViewUser() {
               });
 
             case 5:
-              _context3.next = 10;
+              fetchUser();
+              _context3.next = 11;
               break;
 
-            case 7:
-              _context3.prev = 7;
+            case 8:
+              _context3.prev = 8;
               _context3.t0 = _context3["catch"](2);
 
               if (_context3.t0.response.status === 401) {
                 setRedirectUrl("/sign-in");
               }
 
-            case 10:
+            case 11:
             case "end":
               return _context3.stop();
           }
         }
-      }, _callee3, null, [[2, 7]]);
+      }, _callee3, null, [[2, 8]]);
     }));
 
     return function attachUserToGroup() {

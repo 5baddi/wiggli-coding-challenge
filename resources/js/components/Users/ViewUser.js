@@ -65,6 +65,8 @@ function ViewUser() {
 
         try {
             await API.post(`/v1/users/${user.id}/group`, { group_id: selectedGroup });
+
+            fetchUser();
         } catch (error) {
             if (error.response.status === 401) {
                 setRedirectUrl("/sign-in");
