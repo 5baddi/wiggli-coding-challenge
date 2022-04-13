@@ -49,7 +49,7 @@ class UserService extends Service
 
         $attributes[User::PASSWORD_COLUMN] = $this->hashManager->make($attributes[User::PASSWORD_COLUMN]);
 
-        return $this->userManager->create($attributes);
+        return $this->repository->create($attributes);
     }
     
     public function update(User $user, array $attributes): bool

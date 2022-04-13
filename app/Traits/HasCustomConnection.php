@@ -33,7 +33,7 @@ trait HasCustomConnection
             return call_user_func(sprintf('%s::query', $this->model));
         }
 
-        $modelClassName = get_class($this->model);
+        $modelClassName = is_object($this->model) ? get_class($this->model) : $this->model;
 
         return (new $modelClassName)->setConnection($this->connection)->newQuery();
     }

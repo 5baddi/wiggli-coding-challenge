@@ -2,13 +2,18 @@
 
 namespace Database\Seeders;
 
+use App\Models\Group;
 use App\Models\User;
+use App\Services\GroupService;
 use App\Services\UserService;
 use Illuminate\Database\Seeder;
 
-class DefaultDataSeeder extends Seeder
+class DatabaseSeeder extends Seeder
 {
-    public function __construct(private UserService $userService) {}
+    public function __construct(
+        private UserService $userService,
+        private GroupService $groupService
+    ) {}
 
     /**
      * Run the database seeds.
@@ -22,6 +27,10 @@ class DefaultDataSeeder extends Seeder
             User::LAST_LOGIN_COLUMN => 'Baddi',
             User::EMAIL_COLUMN      => 'project@baddi.info',
             User::PASSWORD_COLUMN   => 'password',
+        ]);
+        
+        $this->groupService->create([
+            Group::NAME_COLUMN => 'Default',
         ]);
     }
 }
