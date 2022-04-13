@@ -24,13 +24,13 @@ class DatabaseSeeder extends Seeder
     {
         $this->userService->create([
             User::FIRST_NAME_COLUMN => 'Mohamed',
-            User::LAST_LOGIN_COLUMN => 'Baddi',
+            User::LAST_NAME_COLUMN  => 'Baddi',
             User::EMAIL_COLUMN      => 'project@baddi.info',
             User::PASSWORD_COLUMN   => 'password',
         ]);
         
         $this->groupService->create([
-            Group::NAME_COLUMN => 'Default',
+            Group::NAME_COLUMN => 'Wiggli',
         ]);
     }
 }

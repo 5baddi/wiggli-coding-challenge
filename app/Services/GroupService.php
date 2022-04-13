@@ -13,6 +13,7 @@ use App\Services\Service;
 use Illuminate\Support\Arr;
 use Illuminate\Hashing\HashManager;
 use App\Repositories\GroupRepository;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class GroupService extends Service
 {
@@ -21,6 +22,11 @@ class GroupService extends Service
         GroupRepository $groupRepository,
     ) {
         $this->repository = $groupRepository;
+    }
+
+    public function paginate(?int $page = null): LengthAwarePaginator
+    {
+        return $this->repository->paginate($page);
     }
 
     public function findById(string $id): ?Group
@@ -33,12 +39,18 @@ class GroupService extends Service
         return $this->repository->findByName($name);
     }
 
+    public function existsByName(Group $group, string $name): ?Group
+    {
+        return $this->repository->existsByName($group->getId(), $name);
+    }
+
     public function create(array $attributes): Group
     {
         $attributes = Arr::only(
             $attributes,
             [
                 Group::NAME_COLUMN,
+                Group::DESCRIPTION_COLUMN,
             ]
         );
 
@@ -51,9 +63,15 @@ class GroupService extends Service
             $attributes,
             [
                 Group::NAME_COLUMN,
+                Group::DESCRIPTION_COLUMN,
             ]
         );
 
         return $this->repository->update([Group::ID_COLUMN => $group->getId()], $attributes);
+    }
+
+    public function delete(Group $group): bool
+    {
+        return $this->repository->delete($group->getId());
     }
 }

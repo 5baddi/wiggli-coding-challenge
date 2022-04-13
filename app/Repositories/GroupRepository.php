@@ -18,29 +18,17 @@ class GroupRepository extends EloquentRepository
 
     /** @var Group */
     protected $model = Group::class;
-
-    public function findById(string $id): ?Group
-    {
-        return $this->newQuery()
-            ->find($id);
-    }
     
     public function findByName(string $name): ?Group
     {
-        return $this->newQuery()
-            ->where(Group::NAME_COLUMN, $name)
-            ->first();
+        return $this->first([Group::NAME_COLUMN => $name]);
     }
 
-    public function create(array $attributes): Group
+    public function existsByName(int $id, string $name): ?Group
     {
-        return $this->newQuery()->create($attributes);
-    }
-
-    public function update(array $conditions, array $attributes): bool
-    {
-        return $this->newQuery()
-            ->where($conditions)
-            ->update($attributes);
+        return $this->first([
+            [Group::ID_COLUMN, '!=', $id],
+            [Group::NAME_COLUMN => $name]
+        ]);
     }
 }

@@ -13,6 +13,7 @@ use App\Services\Service;
 use BADDIServices\Framework\Repositories\UserRepository;
 use Illuminate\Support\Arr;
 use Illuminate\Hashing\HashManager;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class UserService extends Service
 {
@@ -23,6 +24,11 @@ class UserService extends Service
         $this->repository = $userRepository;
     }
 
+    public function paginate(?int $page = null): LengthAwarePaginator
+    {
+        return $this->repository->paginate($page);
+    }
+    
     public function findById(string $id): ?User
     {
         return $this->repository->findById($id);
@@ -31,6 +37,11 @@ class UserService extends Service
     public function findByEmail(string $email): ?User
     {
         return $this->repository->findByEmail($email);
+    }
+    
+    public function existsByEmail(User $user, string $email): ?User
+    {
+        return $this->repository->existsByEmail($user->getId(), $email);
     }
 
     public function create(array $attributes): User
@@ -42,12 +53,15 @@ class UserService extends Service
                 User::LAST_NAME_COLUMN,
                 User::EMAIL_COLUMN,
                 User::PASSWORD_COLUMN,
-                User::LAST_LOGIN_COLUMN,
-                User::LAST_LOGIN_IP_COLUMN,
+                User::PHONE_COLUMN,
+                User::AGE_COLUMN,
+                User::TYPE_COLUMN,
             ]
         );
 
-        $attributes[User::PASSWORD_COLUMN] = $this->hashManager->make($attributes[User::PASSWORD_COLUMN]);
+        if (Arr::has($attributes, User::PASSWORD_COLUMN)) {
+            $attributes[User::PASSWORD_COLUMN] = $this->hashManager->make($attributes[User::PASSWORD_COLUMN]);
+        }
 
         return $this->repository->create($attributes);
     }
@@ -57,11 +71,25 @@ class UserService extends Service
         $attributes = Arr::only(
             $attributes,
             [
-                User::LAST_LOGIN_COLUMN,
-                User::LAST_LOGIN_IP_COLUMN,
+                User::FIRST_NAME_COLUMN,
+                User::LAST_NAME_COLUMN,
+                User::EMAIL_COLUMN,
+                User::PASSWORD_COLUMN,
+                User::PHONE_COLUMN,
+                User::AGE_COLUMN,
+                User::TYPE_COLUMN,
             ]
         );
+        
+        if (Arr::has($attributes, User::PASSWORD_COLUMN)) {
+            $attributes[User::PASSWORD_COLUMN] = $this->hashManager->make($attributes[User::PASSWORD_COLUMN]);
+        }
 
         return $this->repository->update([User::ID_COLUMN => $user->getId()], $attributes);
+    }
+
+    public function delete(User $user): bool
+    {
+        return $this->repository->delete($user->getId());
     }
 }

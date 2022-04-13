@@ -11,5 +11,5 @@ namespace BADDIServices\Framework;
 class App
 {
     public const DEFAULT_LOCALE = 'en';
-    public const PAGINATION_LIMIT = 25;
+    public const PAGINATION_LIMIT = 20;
 }

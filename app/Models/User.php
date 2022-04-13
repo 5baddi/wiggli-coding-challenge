@@ -28,16 +28,13 @@ class User extends Entity implements AuthenticatableContract, AuthorizableContra
 
     public const FIRST_NAME_COLUMN = 'first_name';
     public const LAST_NAME_COLUMN = 'last_name';
-    public const AVATAR_COLUMN = 'avatar';
     public const EMAIL_COLUMN = 'email';
     public const PASSWORD_COLUMN = 'password';
     public const PHONE_COLUMN = 'phone';
     public const VERIFIED_AT_COLUMN = 'verified_at';
-    public const LAST_LOGIN_COLUMN = 'last_login';
-    public const LAST_LOGIN_IP_COLUMN = 'last_login_ip';
-    public const TIMEZONE_COLUMN = 'timezone';
-    public const BANNED_COLUMN = 'banned';
     public const IS_SUPER_ADMIN_COLUMN = 'is_super_admin';
+    public const AGE_COLUMN = 'age';
+    public const TYPE_COLUMN = 'type';
 
     /** @var array */
     protected $hidden = [
@@ -64,19 +61,19 @@ class User extends Entity implements AuthenticatableContract, AuthorizableContra
         return $this->getAttribute(self::PASSWORD_COLUMN);
     }
     
-    public function getAvatar(): ?string
-    {
-        return $this->getAttribute(self::AVATAR_COLUMN);
-    }
-    
     public function getPhone(): ?string
     {
         return $this->getAttribute(self::PHONE_COLUMN);
     }
     
-    public function hasPassword(): bool
+    public function getType(): ?string
     {
-        return $this->getAttribute(self::PASSWORD_COLUMN) !== null;
+        return $this->getAttribute(self::TYPE_COLUMN);
+    }
+    
+    public function getAge(): ?int
+    {
+        return $this->getAttribute(self::AGE_COLUMN);
     }
 
     public function getFullName(): string

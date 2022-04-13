@@ -19,28 +19,16 @@ class UserRepository extends EloquentRepository
     /** @var User */
     protected $model = User::class;
 
-    public function findById(string $id): ?User
-    {
-        return $this->newQuery()
-            ->find($id);
-    }
-    
     public function findByEmail(string $email): ?User
     {
-        return $this->newQuery()
-            ->where(User::EMAIL_COLUMN, $email)
-            ->first();
+        return $this->first([User::EMAIL_COLUMN => $email]);
     }
-
-    public function create(array $attributes): User
+    
+    public function existsByEmail(int $id, string $email): ?User
     {
-        return $this->newQuery()->create($attributes);
-    }
-
-    public function update(array $conditions, array $attributes): bool
-    {
-        return $this->newQuery()
-            ->where($conditions)
-            ->update($attributes);
+        return $this->first([
+            [User::ID_COLUMN, '!=', $id],
+            [User::EMAIL_COLUMN => $email]
+        ]);
     }
 }
