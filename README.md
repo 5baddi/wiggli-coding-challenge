@@ -60,10 +60,10 @@ docker-compose exec wiggli /bin/bash
 > composer install && php artisan key:generate && php artisan storage:link
 ```
 
-8. Run migration
+8. Run migration and seed default data
 
 ```bash
-> php artisan migrate
+> php artisan migrate && php artisan db:seed
 ```
 
 9. Build front end
