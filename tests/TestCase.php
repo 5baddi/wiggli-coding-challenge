@@ -18,6 +18,7 @@ abstract class TestCase extends BaseTestCase {
     public function setUp(): void 
     {
         parent::setUp();
+
         $this->faker = Factory::create();
         Artisan::call('migrate:refresh');
     }
