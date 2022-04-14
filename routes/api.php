@@ -36,19 +36,22 @@ Route::prefix('v1')
         Route::get('/users', ListUsersController::class);
         Route::get('/users/{id}', RetrieveUserController::class);
 
-        // User Endpoints
-        Route::post('/users', CreateUserController::class)->middleware('auth:api');
-        Route::post('/users/{id}/group', AttachUserToGroupController::class)->middleware('auth:api');
-        Route::put('/users/{id}', UpdateUserController::class)->middleware('auth:api');
-        Route::delete('/users/{id}', DeleteUserController::class)->middleware('auth:api');
-        
         // Public Group Endpoints
         Route::get('/groups', ListGroupsController::class);
         Route::get('/groups/all', ListAllGroupsController::class);
         Route::get('/groups/{id}', RetrieveGroupController::class);
 
-        // Group Endpoints
-        Route::post('/groups', CreateGroupController::class)->middleware('auth:api');
-        Route::put('/groups/{id}', UpdateGroupController::class)->middleware('auth:api');
-        Route::delete('/groups/{id}', DeleteGroupController::class)->middleware('auth:api');
+        Route::middleware('auth:api')
+            ->group(function () {
+                // User Endpoints
+                Route::post('/users', CreateUserController::class);
+                Route::post('/users/{id}/group', AttachUserToGroupController::class);
+                Route::put('/users/{id}', UpdateUserController::class);
+                Route::delete('/users/{id}', DeleteUserController::class);
+
+                // Group Endpoints
+                Route::post('/groups', CreateGroupController::class);
+                Route::put('/groups/{id}', UpdateGroupController::class);
+                Route::delete('/groups/{id}', DeleteGroupController::class);
+            });  
     });
