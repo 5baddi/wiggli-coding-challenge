@@ -47,7 +47,7 @@ function SignIn() {
                     <label className="form-label">Password</label>
                     <input type="password" name="password" defaultValue={formData.password} className="form-control" onChange={handleChange}/>
                 </div>
-                <button type="button" className="btn btn-primary" onClick={handleSubmit}>Create</button>
+                <button type="button" className="btn btn-primary" onClick={handleSubmit}>Sign In</button>
             </form>
         )
         : (<Navigate to={redirectUrl}/>)
