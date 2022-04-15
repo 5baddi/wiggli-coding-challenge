@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, Navigate } from "react-router-dom";
+import { Navigate, useParams } from "react-router-dom";
+
 import API from "../../API";
 
 function DeleteUser() {
-    const location = useLocation();
+    const { id } = useParams();
 
     const [redirectUrl, setRedirectUrl] = useState(undefined);
 
@@ -13,7 +14,7 @@ function DeleteUser() {
 
     const deleteUser = async () => {
         try {
-            let response = await API.delete(`/v1${location.pathname.replace('/delete', '')}`);
+            let response = await API.delete(`/v1/users/${id}`);
 
             if (typeof response.status === 204) {
                 setRedirectUrl("/");

@@ -2667,7 +2667,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function DeleteGroup() {
-  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useLocation)();
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
+      id = _useParams.id;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(undefined),
       _useState2 = _slicedToArray(_useState, 2),
@@ -2687,7 +2688,7 @@ function DeleteGroup() {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return _API__WEBPACK_IMPORTED_MODULE_2__["default"]["delete"]("/v1".concat(location.pathname.replace('/delete', '')));
+              return _API__WEBPACK_IMPORTED_MODULE_2__["default"]["delete"]("/v1/groups/".concat(id));
 
             case 3:
               response = _context.sent;
@@ -2780,7 +2781,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function EditGroup() {
-  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useLocation)();
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)(),
+      id = _useParams.id;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(undefined),
       _useState2 = _slicedToArray(_useState, 2),
@@ -2801,7 +2803,7 @@ function EditGroup() {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return _API__WEBPACK_IMPORTED_MODULE_2__["default"].get("/v1".concat(location.pathname.replace('/edit', '')));
+              return _API__WEBPACK_IMPORTED_MODULE_2__["default"].get("/v1/groups/".concat(id));
 
             case 3:
               response = _context.sent;
@@ -3018,7 +3020,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function ViewGroup() {
-  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useLocation)();
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
+      id = _useParams.id;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(undefined),
       _useState2 = _slicedToArray(_useState, 2),
@@ -3039,7 +3042,7 @@ function ViewGroup() {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return _API__WEBPACK_IMPORTED_MODULE_2__["default"].get("/v1".concat(location.pathname.replace('/view', '')));
+              return _API__WEBPACK_IMPORTED_MODULE_2__["default"].get("/v1/groups/".concat(id));
 
             case 3:
               response = _context.sent;
@@ -3328,7 +3331,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function DeleteUser() {
-  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useLocation)();
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
+      id = _useParams.id;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(undefined),
       _useState2 = _slicedToArray(_useState, 2),
@@ -3348,7 +3352,7 @@ function DeleteUser() {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return _API__WEBPACK_IMPORTED_MODULE_2__["default"]["delete"]("/v1".concat(location.pathname.replace('/delete', '')));
+              return _API__WEBPACK_IMPORTED_MODULE_2__["default"]["delete"]("/v1/users/".concat(id));
 
             case 3:
               response = _context.sent;
@@ -3441,7 +3445,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 
 
 function EditUser() {
-  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useLocation)();
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_5__.useParams)(),
+      id = _useParams.id;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(undefined),
       _useState2 = _slicedToArray(_useState, 2),
@@ -3462,7 +3467,7 @@ function EditUser() {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return _API__WEBPACK_IMPORTED_MODULE_2__["default"].get("/v1".concat(location.pathname.replace('/edit', '')));
+              return _API__WEBPACK_IMPORTED_MODULE_2__["default"].get("/v1/users/".concat(id));
 
             case 3:
               response = _context.sent;
@@ -3733,7 +3738,8 @@ function _arrayWithHoles(arr) { if (Array.isArray(arr)) return arr; }
 function ViewUser() {
   var _user$groups;
 
-  var location = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useLocation)();
+  var _useParams = (0,react_router_dom__WEBPACK_IMPORTED_MODULE_4__.useParams)(),
+      id = _useParams.id;
 
   var _useState = (0,react__WEBPACK_IMPORTED_MODULE_1__.useState)(undefined),
       _useState2 = _slicedToArray(_useState, 2),
@@ -3765,7 +3771,7 @@ function ViewUser() {
             case 0:
               _context.prev = 0;
               _context.next = 3;
-              return _API__WEBPACK_IMPORTED_MODULE_2__["default"].get("/v1".concat(location.pathname.replace('/view', '')));
+              return _API__WEBPACK_IMPORTED_MODULE_2__["default"].get("/v1/users/".concat(id));
 
             case 3:
               response = _context.sent;

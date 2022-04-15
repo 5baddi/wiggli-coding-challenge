@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import API from "../../API";
 
 function ViewGroup() {
-    const location = useLocation();
+    const { id } = useParams();
 
     const [group, setGroup] = useState(undefined);
 
@@ -13,7 +13,7 @@ function ViewGroup() {
 
     const fetchGroup = async () => {
         try {
-            let response = await API.get(`/v1${location.pathname.replace('/view', '')}`);
+            let response = await API.get(`/v1/groups/${id}`);
 
             if (typeof response.data.success === "boolean" && response.data.success === true) {
                 let group = (response.data.result || undefined);

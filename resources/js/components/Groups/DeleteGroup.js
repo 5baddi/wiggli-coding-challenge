@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useLocation, Navigate } from "react-router-dom";
+import { useParams, Navigate } from "react-router-dom";
 import API from "../../API";
 
 function DeleteGroup() {
-    const location = useLocation();
+    const { id } = useParams();
 
     const [redirectUrl, setRedirectUrl] = useState(undefined);
 
@@ -13,7 +13,7 @@ function DeleteGroup() {
 
     const deleteGroup = async () => {
         try {
-            let response = await API.delete(`/v1${location.pathname.replace('/delete', '')}`);
+            let response = await API.delete(`/v1/groups/${id}`);
 
             if (typeof response.status === 204) {
                 setRedirectUrl("/groups");

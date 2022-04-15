@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import API from "../../API";
 
 function ViewUser() {
-    const location = useLocation();
+    const { id } = useParams();
 
     const [user, setUser] = useState(undefined);
     const [groups, setGroups] = useState(undefined);
@@ -16,7 +16,7 @@ function ViewUser() {
 
     const fetchUser = async () => {
         try {
-            let response = await API.get(`/v1${location.pathname.replace('/view', '')}`);
+            let response = await API.get(`/v1/users/${id}`);
 
             if (typeof response.data.success === "boolean" && response.data.success === true) {
                 let user = (response.data.result || undefined);
