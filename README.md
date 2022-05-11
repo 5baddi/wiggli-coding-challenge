@@ -17,7 +17,7 @@
 1. Clone the repository into `~/dev`
 
 ```bash
-git clone git@github.com:customer-care-ai/tripetto-demo.git
+git clone git@github.com:5baddi/wiggli-coding-challenge.git
 ```
 
 2. To avoid user/group permissions issues, let's export your user ID & group ID
